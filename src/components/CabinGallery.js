@@ -1,4 +1,3 @@
-
 import React, { useContext } from 'react';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
@@ -10,11 +9,12 @@ import CabinContext from '../context/CabinContext';
 import { motion } from 'framer-motion';
 
 const CabinGallery = () => {
-  const { cabins, selectedCity, loading, error, setSelectedCabin } = useContext(CabinContext); // `setSelectedCabin` tomado del contexto
+  const { cabins, selectedCity, loading, error, setSelectedCabin } = useContext(CabinContext);
 
   if (loading) return <Typography>Cargando cabañas...</Typography>;
   if (error) return <Typography>{error}</Typography>;
   if (!selectedCity) return null;
+
 
   return (
     <Container sx={{ mt: 4 }}>
@@ -32,7 +32,7 @@ const CabinGallery = () => {
                 <CardMedia
                   component="img"
                   height="200"
-                  image={cabin.image}
+                  image={require('../assets/images/'+cabin.image)}
                   alt={cabin.name}
                 />
                 <CardContent>
